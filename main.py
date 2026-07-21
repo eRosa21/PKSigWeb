@@ -9,22 +9,54 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Hello Pokemon SIG"}
-
 @app.get("/regions")
 def get_regions(db: Session = Depends(get_db)):
     regions = db.query(Region).all()
     return regions
 
-@app.post("/regions/add")
-def create_region(name: str, generation: int,  db: Session = Depends(get_db)):
+#@app.post("/regions/create")
+#def create_region(name: str, generation: int,  db: Session = Depends(get_db)):
+ #   region = Region(name=name, generation=generation)
+  #  db.add(region)
+   # db.commit()
+    #db.refresh(region)
+    #return region
+
+@app.post("/region/add")
+def add_region(name:str,generation:int,db:Session = Depends(get_db)):    
     region = Region(name=name, generation=generation)
     db.add(region)
     db.commit()
     db.refresh(region)
     return region
+
+@app.put("/regions/update")
+def update_region(region_id:int, name:str,generation:int,db:Session = Depends(get_db)):
+    region = db.query(Region).filter(Region.id == region_id).first()
+    
+    if not region:
+        
+        raise
+    HTTPException(status_code=404,detail ="Região não encontrada")
+    region.name = name
+    region.generation=generation
+    
+    db.commit()
+    db.refresh(region)
+    return region
+
+@app.delete("/regions/delete")
+def delete_region(region_id:int, name:str, generation:int, db:Session = Depends(get_db)):
+    region = db.query(Region).filter(Region_id == region_id).first()
+    
+    if not region:
+        
+        raise
+    HTTPException(status_code=404,detail ="Região não encontrada")
+    
+    db.delete(region)
+    db.commit()
+    return {"Message:" f"A Região {region_name} deletada com sucesso"}
 
 @app.post("/routes/add")
 def add_route(region_id: int, route_number: int, 
@@ -59,13 +91,6 @@ description: str, gym: str, gym_type:str,db: Session = Depends(get_db)):
 def get_cities(db: Session = Depends(get_db)):
     cities = db.query(City).all()
     return cities
-
-def add_region(name:str,generation:int,db:Session = Depends(get_db)):    
-    region = Region(name=name, generation=generation)
-    db.add(region)
-    db.commit()
-    db.refresh(region)
-    return region
     
 if __name__ == "__main__":
     import uvicorn

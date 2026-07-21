@@ -1,9 +1,10 @@
 # pyrefly: ignore [missing-import]
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 # pyrefly: ignore [missing-import]
 from sqlalchemy.orm import Session
 from database import engine, Base, get_db
 from models import Region, Route, City
+import requests
 
 Base.metadata.create_all(bind=engine)
 
@@ -47,16 +48,14 @@ def update_region(region_id:int, name:str,generation:int,db:Session = Depends(ge
 
 @app.delete("/regions/delete")
 def delete_region(region_id:int, name:str, generation:int, db:Session = Depends(get_db)):
-    region = db.query(Region).filter(Region_id == region_id).first()
+    region = db.query(Region).filter(Region.id == region_id).first()
     
     if not region:
-        
-        raise
-    HTTPException(status_code=404,detail ="Região não encontrada")
+        raise HTTPException(status_code=404, detail="Região não encontrada")
     
     db.delete(region)
     db.commit()
-    return {"Message:" f"A Região {region_name} deletada com sucesso"}
+    return {"Message": f"A Região {region.name} deletada com sucesso"}
 
 @app.post("/routes/add")
 def add_route(region_id: int, route_number: int, 
@@ -91,7 +90,31 @@ description: str, gym: str, gym_type:str,db: Session = Depends(get_db)):
 def get_cities(db: Session = Depends(get_db)):
     cities = db.query(City).all()
     return cities
-    
+
+@app.get("/pokemon/{pokemon_identifier}")
+def get_pokemon_locations(pokemon_identifier: str):
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_identifier.lower()}/encounters"
+    resposta = requests.get(url)
+
+    if resposta.status_code == 200:
+        info = resposta.json()
+        locations = [item['location_area']['name'] for item in info]
+        return locations
+    else:
+        return []
+
+pokemon_name = "turtwig"
+pokemon_id = "387"
+pokemon_info = get_pokemon_locations(pokemon_id or pokemon_name)
+
+if pokemon_info:
+    print(f"Localizações da espécie {pokemon_name}:")
+    for loc in pokemon_info:
+        print(f'- {loc}')
+else:
+    print(f"Não foi possivel encontrar informações de {pokemon_name}")
+
 if __name__ == "__main__":
+    # pyrefly: ignore [missing-import]
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

@@ -30,3 +30,17 @@ class City(Base):
     gym = Column(String(100))
     gym_type = Column(String(20))
     description = Column(Text)
+'
+class Pokemon(Base):
+    __tablename__ = "pokemon"
+
+    id = Column(Integer,primary_key=True)
+    name = Column(String(50),unique= True, nullable=False)
+    dex_number = Column(Integer,unique =True, nullable=False)
+    type1 = Column(String(20), nullable=False)
+    type2 = Column(String(20))
+    weight = Column(Integer, nullable=False)
+    height = Column(Integer, nullable=False)
+
+
+

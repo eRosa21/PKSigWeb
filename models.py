@@ -16,17 +16,27 @@ class Route(Base):
     id = Column(Integer, primary_key=True, index=True)
     region_id = Column(Integer, ForeignKey("regions.id"), nullable=False)
     route_number = Column(Integer, nullable=False)
-    #lat = Column(Float, nullable=True)
-    #lng = Column(Float, nullable=True)
+    pokeapi_name = Column(String(250), nullable = False)
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)
 
 class City(Base):
     __tablename__ = "cities"
     
     id = Column(Integer, primary_key=True, index=True)
     region_id = Column(Integer, ForeignKey("regions.id"), nullable=False)
-    name = Column(String(100), nullable=False)
-    #lat = Column(Float, nullable=True)
-    #lng = Column(Float, nullable=True)
+    pokeapi_name = Column(String(250), nullable = False)
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)
     gym = Column(String(100))
     gym_type = Column(String(20))
     description = Column(Text)
+
+class Pokemon(Base):
+    __tablename__ = "pokemon"
+
+    id = Column(Integer,primary_key=True)
+    name = Column(String(100))
+    dex_number = Column(Integer,unique =True)
+    location_area = Column(String(500))
+

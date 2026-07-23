@@ -25,7 +25,7 @@ class City(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     region_id = Column(Integer, ForeignKey("regions.id"), nullable=False)
-    pokeapi_name = Column(String(250), nullable = False)
+    name = Column(String(100), nullable = False)
     lat = Column(Float, nullable=True)
     lng = Column(Float, nullable=True)
     gym = Column(String(100))
@@ -43,3 +43,10 @@ class Pokemon(Base):
     weight = Column(Integer, nullable=False)
     height = Column(Integer, nullable=False)
 
+class Location(Base):
+    __tablename__ = "locations"
+
+    id = Column(Integer, primary_key = True, index = True)
+    name = Column(String(100), nullable = False)
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)

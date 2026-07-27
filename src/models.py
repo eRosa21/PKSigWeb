@@ -33,7 +33,7 @@ class City(Base):
     description = Column(Text)
 
 class Pokemon(Base):
-    __tablename__ = "pokemon"
+    __tablename__ = "pokemons"
 
     id = Column(Integer,primary_key=True)
     name = Column(String(50),unique= True, nullable=False)

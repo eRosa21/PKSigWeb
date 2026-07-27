@@ -1,9 +1,10 @@
-# pyrefly: ignore [missing-import]
+import os 
 from fastapi import FastAPI, Depends, HTTPException
 # pyrefly: ignore [missing-import]
+from dotenv import load_dotenv
 from sqlalchemy.orm import Session
 from database import engine, Base, get_db
-from models import Region, Route, City, Pokemon,Location
+from models import Region, Route, City, Pokemon, Location
 import requests
 
 Base.metadata.create_all(bind=engine)
@@ -14,7 +15,7 @@ app = FastAPI()
 
 @app.get("/regions")
 def get_regions(db: Session = Depends(get_db)):
-    regions = db.query(Region).all()
+    regions = db.query(Region).all()    
     return regions
 
 @app.post("/region/add")
@@ -30,9 +31,7 @@ def update_region(region_id:int, name:str,generation:int,db:Session = Depends(ge
     region = db.query(Region).filter(Region.id == region_id).first()
     
     if not region:
-        
-        raise
-    HTTPException(status_code=404,detail ="Região não encontrada")
+        raise HTTPException(status_code=404,detail ="Região não encontrada")
     region.name = name
     region.generation=generation
     

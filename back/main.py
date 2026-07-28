@@ -3,8 +3,8 @@ from fastapi import FastAPI, Depends, HTTPException
 # pyrefly: ignore [missing-import]
 from dotenv import load_dotenv
 from sqlalchemy.orm import Session
-from database import engine, Base, get_db
-from models import Region, Route, City, Pokemon, Location
+from src.infra.database.database import engine, Base, get_db
+from src.infra.entities.models import Region, Route, City, Pokemon
 import requests
 
 Base.metadata.create_all(bind=engine)

@@ -3,7 +3,7 @@ from fastapi import FastAPI, Depends, HTTPException
 # pyrefly: ignore [missing-import]
 from sqlalchemy.orm import Session
 from database import engine, Base, get_db
-from models import Region, Route, City, Pokemon 
+from models import Region, Route, City, Pokemon,Location
 import requests
 
 Base.metadata.create_all(bind=engine)
@@ -41,7 +41,7 @@ def update_region(region_id:int, name:str,generation:int,db:Session = Depends(ge
     return region
 
 @app.delete("/regions/delete")
-def delete_region(region_id:int, name:str, generation:int, db:Session = Depends(get_db)):
+def delete_region(region_id:int, db:Session = Depends(get_db)):
     region = db.query(Region).filter(Region.id == region_id).first()
     
     if not region:

@@ -1,0 +1,69 @@
+[33m91c1903[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: commit: resolved conflict in requirments
+[33m7065acd[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: pull origin main: Fast-forward
+[33mff03967[m HEAD@{2}: checkout: moving from db_updt to main
+[33ma1e0630[m[33m ([m[1;31morigin/db_updt[m[33m, [m[1;32mdb_updt[m[33m)[m HEAD@{3}: commit: Removing archive env
+[33m52540b9[m HEAD@{4}: checkout: moving from main to db_updt
+[33mff03967[m HEAD@{5}: checkout: moving from db_updt to main
+[33m52540b9[m HEAD@{6}: pull origin main: Merge made by the 'ort' strategy.
+[33m245b3fc[m HEAD@{7}: checkout: moving from main to db_updt
+[33mff03967[m HEAD@{8}: commit: Removing archive env
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{9}: checkout: moving from db_updt to main
+[33m245b3fc[m HEAD@{10}: checkout: moving from main to db_updt
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{11}: reset: moving to HEAD
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{12}: checkout: moving from db_updt to main
+[33m245b3fc[m HEAD@{13}: commit: wip: databseaddas
+[33m256726f[m HEAD@{14}: checkout: moving from db_updt to db_updt
+[33m256726f[m HEAD@{15}: checkout: moving from main to db_updt
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{16}: checkout: moving from db_updt to main
+[33m256726f[m HEAD@{17}: commit: fix: update requirements
+[33m0d37046[m HEAD@{18}: checkout: moving from main to db_updt
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{19}: checkout: moving from db_updt to main
+[33m0d37046[m HEAD@{20}: commit: chore: update merge problem in the gitignore
+[33md7b95d1[m HEAD@{21}: commit: wip: add alembic functions to migration of the db
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{22}: pull origin main: Fast-forward
+[33m21a4107[m HEAD@{23}: checkout: moving from main to db_updt
+[33mee56195[m[33m ([m[1;32mlist[m[33m)[m HEAD@{24}: pull origin main: Fast-forward
+[33m21a4107[m HEAD@{25}: checkout: moving from db_updt to main
+[33m21a4107[m HEAD@{26}: checkout: moving from refactoring to db_updt
+[33mc68b9be[m HEAD@{27}: checkout: moving from db_updt to refactoring
+[33m21a4107[m HEAD@{28}: checkout: moving from refactoring to db_updt
+[33mc68b9be[m HEAD@{29}: commit: refactor: test if pycache its ignored
+[33m2ad435a[m HEAD@{30}: checkout: moving from db_updt to refactoring
+[33m21a4107[m HEAD@{31}: merge origin/main: Fast-forward
+[33m0021f04[m HEAD@{32}: checkout: moving from refactoring to db_updt
+[33m2ad435a[m HEAD@{33}: merge origin/main: Merge made by the 'ort' strategy.
+[33mb15ff98[m HEAD@{34}: checkout: moving from main to refactoring
+[33m21a4107[m HEAD@{35}: commit: chore: Remove pycache directories
+[33m5240df7[m HEAD@{36}: checkout: moving from refactoring to main
+[33mb15ff98[m HEAD@{37}: commit (merge): chore: Sync main changes
+[33me11b04d[m HEAD@{38}: commit: chore: Remove pycache from git tracking
+[33mc7193ee[m HEAD@{39}: checkout: moving from main to refactoring
+[33m5240df7[m HEAD@{40}: commit: chore: Remove pycache from git tracking
+[33mb8bda86[m HEAD@{41}: commit: chore: Ensure gitignore ignores pycache
+[33m43ef386[m HEAD@{42}: checkout: moving from refactoring to main
+[33mc7193ee[m HEAD@{43}: checkout: moving from main to refactoring
+[33m43ef386[m HEAD@{44}: pull origin main: Merge made by the 'ort' strategy.
+[33m17d665f[m HEAD@{45}: commit: chore: remove cached files
+[33ma6ca2a5[m HEAD@{46}: checkout: moving from refactoring to main
+[33mc7193ee[m HEAD@{47}: commit: style: removed comments in the routes
+[33mf297299[m HEAD@{48}: commit: wip: add routes to test connection with fastapi
+[33maaefb6d[m HEAD@{49}: commit: refactor: create more controllers files
+[33md5e17fe[m HEAD@{50}: commit: refactor: get router updated
+[33mdc8e0a6[m HEAD@{51}: commit: refactor: creating controllers
+[33m4b7d6f9[m HEAD@{52}: commit: refactor: more updates off structure
+[33mb99eaf2[m HEAD@{53}: commit: add more folders to better separate the structure
+[33mdb0f819[m HEAD@{54}: commit: Start the refactoring configurations
+[33m0021f04[m HEAD@{55}: checkout: moving from db_updt to refactoring
+[33m0021f04[m HEAD@{56}: commit: add new table configuration
+[33ma6ca2a5[m HEAD@{57}: checkout: moving from main to db_updt
+[33ma6ca2a5[m HEAD@{58}: commit (merge): teste
+[33mc3181e9[m HEAD@{59}: commit: Update the main code
+[33m8a0168c[m HEAD@{60}: checkout: moving from database_updates to main
+[33m959455f[m[33m ([m[1;31morigin/database_updates[m[33m, [m[1;32mdatabase_updates[m[33m)[m HEAD@{61}: commit: Update the table Pokémon
+[33mde3dd18[m HEAD@{62}: commit: Add new table Pokémon in the database
+[33m8a0168c[m HEAD@{63}: checkout: moving from main to database_updates
+[33m8a0168c[m HEAD@{64}: commit: Testing the conection off the PokéAPI in the code
+[33madab235[m HEAD@{65}: commit: Add Post and Delete HTTP methods in the code
+[33mf071af7[m HEAD@{66}: pull origin main --allow-unrelated-histories: Merge made by the 'ort' strategy.
+[33m894b0ed[m HEAD@{67}: Branch: renamed refs/heads/master to refs/heads/main
+[33m894b0ed[m HEAD@{69}: commit (initial): Add the initials codes and settings. Database and FASTAPI configuration

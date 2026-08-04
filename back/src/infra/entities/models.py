@@ -1,6 +1,6 @@
 # pyrefly: ignore [missing-import]
 from sqlalchemy import Column, Integer, String, Float, Text, ForeignKey
-from src.infra.database.database import Base
+from database.database import Base
 
 class Region(Base):
     __tablename__ = "regions"
@@ -9,6 +9,9 @@ class Region(Base):
     name = Column(String(50), unique=True, nullable=False)
     generation = Column(Integer, nullable=False)
     description = Column(Text)
+    
+    def __init__ (self, name:str):
+        self.name = name
 
 class Route(Base):
     __tablename__ = "routes"
